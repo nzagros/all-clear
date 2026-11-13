@@ -1,0 +1,27 @@
+{
+  "name": "all-clear",
+  "version": "1.0.0",
+  "description": "Codex tells you when a finished task no longer needs the chat and hands you a short note to paste after /clear.",
+  "author": { "name": "nzagros", "url": "https://github.com/nzagros" },
+  "homepage": "https://github.com/nzagros/all-clear",
+  "repository": "https://github.com/nzagros/all-clear",
+  "license": "MIT",
+  "keywords": ["context", "clear", "tokens", "handoff", "adhd", "focus", "codex"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "All Clear",
+    "shortDescription": "Start fresh after each task, keep a short note",
+    "longDescription": "When a task is done and the next one does not need the old chat, Codex writes a handoff note of 400 characters or less and tells you to type /clear and paste it. Fewer tokens per message, less drift.",
+    "developerName": "nzagros",
+    "category": "Productivity",
+    "capabilities": ["Instructions"],
+    "websiteURL": "https://github.com/nzagros/all-clear",
+    "defaultPrompt": [
+      "Use all-clear: tell me when this chat can be cleared.",
+      "Write an all-clear handoff note for the next task."
+    ],
+    "brandColor": "#062B8A",
+    "composerIcon": "./icon.png",
+    "logo": "./icon.png"
+  }
+}

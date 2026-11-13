@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>All Clear infographic</title>
+<!-- Type: Jost (Google Fonts, SIL Open Font License 1.1). Colours: cobalt on sand. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #e6dbc7;
+    --surface: #ddd0b9;
+    --ink: #062b8a;
+    --soft: #3a5aa8;
+    --on-ink: #e6dbc7;
+  }
+  :root[data-theme="dark"] {
+    --bg: #071a52;
+    --surface: #0c2468;
+    --ink: #e6dbc7;
+    --soft: #b9c3e0;
+    --on-ink: #071a52;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); font-family: Jost, sans-serif; }
+  .view { display: none; position: relative; overflow: hidden; background: var(--bg); }
+  .view.on { display: block; }
+  h1, h2 { font-weight: 700; text-transform: uppercase; letter-spacing: -0.03em; line-height: 0.9; }
+  p { font-size: 34px; line-height: 1.35; }
+  svg.tab { position: absolute; display: block; }
+  .tab path { fill: var(--ink); }
+
+  /* Banner 1600 x 700 */
+  #banner { width: 1600px; height: 700px; }
+  #banner h1 { position: absolute; left: 92px; top: 96px; font-size: 200px; }
+  #banner p { position: absolute; left: 100px; top: 500px; width: 720px; font-size: 40px; font-weight: 500; }
+  #banner .tab { left: 900px; top: 110px; width: 820px; height: 640px; }
+  #banner .note { position: absolute; left: 960px; top: 240px; width: 560px; color: var(--on-ink); font-size: 30px; line-height: 1.4; }
+  #banner .note b { display: block; font-weight: 700; font-size: 34px; margin-bottom: 14px; }
+  #banner .count { display: block; margin-top: 22px; font-size: 24px; opacity: 0.8; }
+
+  /* Flow 1600 x 1180 */
+  #flow { width: 1600px; height: 1260px; padding: 80px 96px; }
+  #flow h2 { font-size: 96px; }
+  .bar { display: flex; gap: 14px; margin-top: 56px; }
+  .stage { position: relative; flex: 1; padding: 74px 30px 34px; color: var(--on-ink); min-height: 250px; }
+  .stage svg.tab { inset: 0; width: 100%; height: 100%; z-index: 0; }
+  .stage > * { position: relative; z-index: 1; }
+  .stage strong { display: block; font-size: 40px; line-height: 1.05; font-weight: 700; }
+  .stage span { display: block; margin-top: 14px; font-size: 26px; line-height: 1.3; }
+  .why { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 80px; }
+  .why h3 { font-size: 44px; font-weight: 700; line-height: 1.05; margin-bottom: 18px; }
+  .why p { font-size: 30px; }
+  .stack { position: relative; height: 250px; margin-top: 30px; }
+  .stack svg.tab { width: 300px; height: 150px; }
+  .stack.one svg.tab path { fill: var(--ink); }
+  .stack.many svg.tab path { fill: var(--soft); }
+  .stack.many svg.tab:last-of-type path { fill: var(--ink); }
+  .stack .label { position: absolute; color: var(--on-ink); font-size: 26px; font-weight: 500; z-index: 2; }
+  .focus { margin-top: 40px; padding: 34px 44px; background: var(--surface); font-size: 34px; font-weight: 500; line-height: 1.3; }
+
+  /* Icon 1024 x 1024 */
+  #icon { width: 1024px; height: 1024px; }
+  #icon .tab { left: 132px; top: 212px; width: 760px; height: 600px; }
+  #icon .mark { position: absolute; left: 230px; top: 470px; color: var(--on-ink); font-size: 210px; font-weight: 700; letter-spacing: -0.03em; }
+</style>
+</head>
+<body>
+<!-- One shape runs the system: the handoff note, drawn as a folder tab. -->
+
+<section class="view" id="banner" aria-label="All Clear banner">
+  <h1>All<br>clear</h1>
+  <p>Claude clears its own chat when a task is done. A short note carries over.</p>
+  <svg class="tab" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 Q0 0 18 0 H300 Q316 0 324 14 L346 52 H982 Q1000 52 1000 70 V800 H0 Z"/></svg>
+  <div class="note">
+    <b>[Handoff]</b>
+    login page done, tests green · next: password reset · mail config in .env.example
+    <span class="count">97 of 400 characters</span>
+  </div>
+</section>
+
+<section class="view" id="flow" aria-label="How All Clear works">
+  <h2>How it works</h2>
+  <div class="bar">
+    <div class="stage"><svg class="tab" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 Q0 0 18 0 H300 Q316 0 324 14 L346 52 H982 Q1000 52 1000 70 V800 H0 Z"/></svg>
+      <strong>Task done</strong><span>You got what you asked for.</span></div>
+    <div class="stage"><svg class="tab" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 Q0 0 18 0 H300 Q316 0 324 14 L346 52 H982 Q1000 52 1000 70 V800 H0 Z"/></svg>
+      <strong>Claude writes a note</strong><span>Only what files don't hold. 400 characters at most.</span></div>
+    <div class="stage"><svg class="tab" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 Q0 0 18 0 H300 Q316 0 324 14 L346 52 H982 Q1000 52 1000 70 V800 H0 Z"/></svg>
+      <strong>/clear runs</strong><span>By itself, right after the answer.</span></div>
+    <div class="stage"><svg class="tab" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 Q0 0 18 0 H300 Q316 0 324 14 L346 52 H982 Q1000 52 1000 70 V800 H0 Z"/></svg>
+      <strong>Fresh start</strong><span>Your next prompt begins with the note.</span></div>
+  </div>
+
+  <div class="why">
+    <div>
+      <h3>Long chat</h3>
+      <p>Every new message makes Claude read the whole chat again. You pay for all of it, every time.</p>
+      <div class="stack many" id="many"></div>
+    </div>
+    <div>
+      <h3>After a clear</h3>
+      <p>Claude reads the note and your new prompt. Old details stop pulling answers off course.</p>
+      <div class="stack one">
+        <svg class="tab" style="left:0;top:40px" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 Q0 0 18 0 H300 Q316 0 324 14 L346 52 H982 Q1000 52 1000 70 V800 H0 Z"/></svg>
+        <span class="label" style="left:28px;top:110px">the note</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="focus">Deep in focus, it's easy to forget /clear and keep going in a full chat. Claude keeps track of that for you.</p>
+</section>
+
+<section class="view" id="icon" aria-label="All Clear icon">
+  <svg class="tab" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 Q0 0 18 0 H300 Q316 0 324 14 L346 52 H982 Q1000 52 1000 70 V800 H0 Z"/></svg>
+  <span class="mark">clear</span>
+</section>
+
+<script>
+  const q = new URLSearchParams(location.search);
+  if (q.get('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+  document.getElementById(q.get('view') || 'banner').classList.add('on');
+  // Old chat: a pile of sheets, each one more message Claude re-reads.
+  const many = document.getElementById('many');
+  for (let i = 0; i < 9; i++) {
+    many.insertAdjacentHTML('beforeend',
+      `<svg class="tab" style="left:${i * 34}px;top:${i * 12}px" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18 Q0 0 18 0 H300 Q316 0 324 14 L346 52 H982 Q1000 52 1000 70 V800 H0 Z"/></svg>`);
+  }
+  many.insertAdjacentHTML('beforeend', '<span class="label" style="left:300px;top:166px">the whole chat</span>');
+</script>
+</body>
+</html>

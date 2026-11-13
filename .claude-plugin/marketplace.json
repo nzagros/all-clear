@@ -1,0 +1,14 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "all-clear",
+  "description": "Claude clears its own context when a task is done.",
+  "owner": { "name": "nzagros" },
+  "plugins": [
+    {
+      "name": "all-clear",
+      "description": "Self-clearing context with a short handoff note.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}

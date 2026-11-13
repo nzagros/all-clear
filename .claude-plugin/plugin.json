@@ -1,0 +1,10 @@
+{
+  "name": "all-clear",
+  "version": "1.0.0",
+  "description": "Claude clears its own context when a task is done and carries a short handoff note into the next prompt. Saves tokens, keeps focus.",
+  "author": { "name": "nzagros" },
+  "homepage": "https://github.com/nzagros/all-clear",
+  "repository": "https://github.com/nzagros/all-clear",
+  "license": "MIT",
+  "keywords": ["context", "clear", "tokens", "handoff", "adhd", "focus"]
+}
