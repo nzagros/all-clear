@@ -51,6 +51,23 @@ your next prompt
 
 If Claude already knows the next task, it starts it right away in the fresh chat.
 
+## Skipped questions
+
+Claude asks you something, and you move on to another topic without answering. The question no longer holds the chat open. Claude decides whether to clear. If the question matters, it goes into the note:
+
+```
+[Handoff]
+covers v5 done, files in Downloads/covers
+
+[Skipped question]
+Send the covers to the client now?
+
+[Task]
+your next prompt
+```
+
+Claude does your new task first, then asks the skipped question once more in one short line. Unimportant questions are dropped.
+
 ## Why it saves tokens
 
 Each message you send makes Claude read the whole chat again. In a chat of 80,000 tokens, even "thanks" sends 80,000 input tokens. Prompt caching makes the repeats cheaper, but they still cost and still fill the context window. After a clear, Claude reads the note and your new prompt.
@@ -74,7 +91,7 @@ Deep in focus, it's easy to forget `/clear` for hours. The reminder keeps track 
 ## When Claude does not clear
 
 - in the middle of a task
-- while it waits for your answer
+- while it waits for your answer (a question you skipped by moving on does not count)
 - when you said you'll come back to details from this chat
 - inside subagents
 
@@ -97,6 +114,7 @@ codex plugin add all-clear@all-clear
 The limits sit at the top of `hooks/register.ts`:
 
 - `MAX_HANDOFF = 400` (characters in the note)
+- `MAX_QUESTION = 200` (characters in a skipped question)
 - `NUDGE_TOKENS = 20_000` (growth before the reminder starts)
 
 ## Uninstall

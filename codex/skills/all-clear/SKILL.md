@@ -12,7 +12,7 @@ A long chat costs tokens on every message, because the model reads the whole cha
 At the end of an answer, check all of these:
 
 - The task the user asked for is done.
-- No question to the user is open.
+- No question to the user is open. A question the user skipped by starting another topic or task does not count as open.
 - The next task, if known, does not need details from this chat that are not saved in files.
 - The chat is long: many tool calls, big outputs or more than about 15 turns.
 
@@ -27,6 +27,14 @@ All clear. Type /clear, then paste:
 
 [Handoff] <terse keywords, max 400 characters>
 ```
+
+If the user skipped an important question, add one more line after the handoff:
+
+```
+[Skipped question] <the question in one line, max 200 characters>
+```
+
+After the clear, answer the new task first, then raise the skipped question once in one short line, only if it still matters.
 
 Rules for the handoff text:
 

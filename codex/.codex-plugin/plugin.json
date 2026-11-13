@@ -1,6 +1,6 @@
 {
   "name": "all-clear",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Codex tells you when a finished task no longer needs the chat and hands you a short note to paste after /clear.",
   "author": { "name": "nzagros", "url": "https://github.com/nzagros" },
   "homepage": "https://github.com/nzagros/all-clear",
