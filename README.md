@@ -5,7 +5,7 @@
 
 # all-clear
 
-A plugin for Claude Code. When a task is done, Claude clears the chat by itself and keeps a short note for the next task.
+A plugin for Claude Code. When a task is done, Claude clears its context window by itself and keeps a short handoff note for the next task. A Codex CLI version is included.
 
 Short chats cost fewer tokens and keep Claude on track.
 
