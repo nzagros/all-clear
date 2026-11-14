@@ -5,7 +5,7 @@
 
 # all-clear
 
-A plugin for Claude Code. When a task is done, Claude clears its context window by itself and keeps a short handoff note for the next task. A Codex CLI version is included.
+A plugin for Claude Code. When a task is done, Claude clears its context window by itself and keeps a short handoff note for the next task. Your last answer stays on screen in a box. For tasks that run for hours, `/ultra-clear` clears at checkpoints and Claude goes on by itself. A Codex CLI version is included.
 
 Short chats cost fewer tokens and keep Claude on track.
 
@@ -50,6 +50,26 @@ your next prompt
 ```
 
 If Claude already knows the next task, it starts it right away in the fresh chat.
+
+## Your last answer stays on screen
+
+After the clear, Claude's last answer is shown in a box at the top of the fresh chat. A list or a draft you asked for is still there to read, and the **Copy** button puts it on your clipboard. The box is drawn by the plugin alone: Claude does not read it, and it costs no tokens. It is not saved in the chat, so `--resume` does not bring it back.
+
+Claude also holds back the clear when its answer is something you asked to see, since you may want to follow up on it. It clears at the end of a later turn instead.
+
+## Ultra-clear for long runs
+
+Some tasks run for hours inside one prompt. Type `/ultra-clear` to switch it on for the session (`/ultra-clear off` to stop). A row above the prompt shows `ultra-clear on` while it runs. The mode stays on through each clear and a reload of the plugin; a restart of Claude Code switches it off.
+
+Once the chat has grown by about 60,000 tokens, Claude gets a hidden reminder with each tool result. At the next clean checkpoint, with a step finished and saved, it:
+
+1. writes the goal, what is done, the decisions and the remaining steps to a state file (the project's plan or TODO file if there is one),
+2. clears with a handoff that names the file and the next step,
+3. goes on by itself in the fresh chat. You type nothing.
+
+If Claude passes a reminder by, it comes back after about 10,000 more tokens, marked overdue. Claude only sees the reminder after a tool call, which a long run makes all the time.
+
+The handoff may hold up to 1,200 characters in this mode. After 30 automatic continues in a row the plugin pauses and keeps the handoff for your next prompt, so a run cannot loop forever. Press Esc to stop at any time; an interrupted turn does not clear.
 
 ## Skipped questions
 
@@ -106,16 +126,20 @@ codex plugin add all-clear@all-clear
 
 ## Requirements
 
-- Claude Code with plugin hooks modules. Tested on 2.1.323.
+- Claude Code with plugin hooks modules. Tested on 2.1.325.
 - Codex CLI with plugins. Tested on 0.165.0.
 
 ## Change the numbers
 
-The limits sit at the top of `hooks/register.ts`:
+The limits sit at the top of `hooks/register.tsx`:
 
 - `MAX_HANDOFF = 400` (characters in the note)
 - `MAX_QUESTION = 200` (characters in a skipped question)
 - `NUDGE_TOKENS = 20_000` (growth before the reminder starts)
+- `ULTRA_TOKENS = 60_000` (growth before ultra-clear asks for a checkpoint)
+- `MAX_HANDOFF_ULTRA = 1200` (characters in the note in ultra-clear mode)
+- `ULTRA_REPEAT = 10_000` (growth before a passed-by checkpoint reminder comes back)
+- `MAX_CHAIN = 30` (automatic continues in a row before ultra-clear pauses)
 
 ## Uninstall
 
@@ -125,7 +149,9 @@ The limits sit at the top of `hooks/register.ts`:
 
 ## Files
 
-- `hooks/register.ts`: the Claude Code plugin (tool, clear, handoff, reminder)
+- `hooks/register.tsx`: the Claude Code plugin (tool, clear, handoff, answer box, reminder, ultra-clear)
+- `hooks/register.test.tsx`: tests, run with `claude plugin test .`
+- `types/index.d.ts`: the plugin's session state (the ultra-clear switch)
 - `codex/skills/all-clear/SKILL.md`: the Codex version
 - `assets/src/`: source of the pictures (HTML, rendered with Playwright)
 

@@ -1,10 +1,21 @@
 {
   "name": "all-clear",
-  "version": "1.1.0",
-  "description": "Claude clears its own context when a task is done and carries a short handoff note into the next prompt. Saves tokens, keeps focus.",
-  "author": { "name": "nzagros" },
+  "version": "1.2.0",
+  "description": "Claude clears its own context when a task is done, keeps your last answer on screen and carries a short handoff note into the next prompt. Ultra-clear checkpoints long runs and continues by itself.",
+  "author": {
+    "name": "nzagros"
+  },
   "homepage": "https://github.com/nzagros/all-clear",
   "repository": "https://github.com/nzagros/all-clear",
   "license": "MIT",
-  "keywords": ["context", "clear", "tokens", "handoff", "adhd", "focus"]
+  "keywords": [
+    "context",
+    "clear",
+    "tokens",
+    "handoff",
+    "adhd",
+    "focus",
+    "long-running-tasks"
+  ],
+  "types": "./types/index.d.ts"
 }
