@@ -33,7 +33,7 @@ Using Codex? See [Codex](#codex) below.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/how-it-works-dark.png">
-  <img alt="How it works: the task is done, Claude writes a note of 400 characters at most, /clear runs by itself, and your next prompt begins with the note. A long chat makes Claude re-read everything on each message; after a clear it reads only the note and your new prompt." src="assets/how-it-works-light.png">
+  <img alt="How it works: the task is done, Claude writes a note of 400 characters at most, /clear runs by itself, your last answer stays on screen in a box, and your next prompt begins with the note. A long chat makes Claude re-read everything on each message; after a clear it reads only the note and your new prompt." src="assets/how-it-works-light.png">
 </picture>
 
 1. You finish a task with Claude.
